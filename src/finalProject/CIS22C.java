@@ -11,56 +11,74 @@ public class CIS22C {
 		System.out.println("Welcome to the Canvas!\n");
 		Scanner input = new Scanner(System.in);
 		File file = new File("Student.txt");
+		String id, name, grade, country, ageString;
 		try {
 			Scanner sc = new Scanner(file);
 			Canvas c = new Canvas(25, 25);
 			while (sc.hasNextLine()) {
-				String id = sc.nextLine();
-				String name = sc.nextLine();
-				String grade = sc.nextLine();
-				String country = sc.nextLine();
-				String ageString = sc.nextLine();
+				id = sc.nextLine();
+				name = sc.nextLine();
+				grade = sc.nextLine();
+				country = sc.nextLine();
+				ageString = sc.nextLine();
 				c.enrollStudent(id, name, grade, country, Integer.parseInt(ageString));
 			}
 			System.out.println("Total students: " + c.size());
-			displayMainMenu();
-			Boolean stillOn = true;
-			while (stillOn) {
-				switch (input.nextLine()) {
-					case "1":
-						System.out.println("Please enter new student ID");
-						String id = input.nextLine();
-						System.out.println("Please enter new student Full Name");
-						String name = input.nextLine();
-						System.out.println("Please enter new student Grade");
-						String grade = input.nextLine();
-						System.out.println("Please enter new student Country");
-						String country = input.nextLine();
-						System.out.println("Please enter new student Age");
-						String ageString = input.nextLine();
-						c.enrollStudent(id, name, grade, country, Integer.parseInt(ageString));
-						System.out.println("You have successfully enrolled " + name);
-						break;
-					case "2":
-//						delete by ID
-						break;
-					case "3":
-						break;
-					case "4":
-						break;
-					case "5":
-//						exportFile();
-						System.out.println("Your student list has been succesfully exported");
-						break;
-					case "0":
-						stillOn = false;
-//						exportFile();
-						System.out.println("Bye! Your student list has been automatically saved");
-						break;
-					default:
-						break;
-				}
+			Boolean mainMenuOn = true;
+			while (mainMenuOn) {
 				displayMainMenu();
+				switch (input.nextLine()) {
+				case "1":
+					System.out.println("Please enter new student ID");
+					id = input.nextLine();
+					System.out.println("Please enter new student Full Name");
+					name = input.nextLine();
+					System.out.println("Please enter new student Grade");
+					grade = input.nextLine();
+					System.out.println("Please enter new student Country");
+					country = input.nextLine();
+					System.out.println("Please enter new student Age");
+					ageString = input.nextLine();
+					c.enrollStudent(id, name, grade, country, Integer.parseInt(ageString));
+					System.out.println("You have successfully enrolled " + name);
+					break;
+				case "2":
+//						delete by ID
+					break;
+				case "3":
+					break;
+				case "4":
+					Boolean listMenuOn = true;
+					while (listMenuOn) {
+						displayListMenu();
+						switch (input.nextLine()) {
+						case "1":
+							c.displayAllStudentsUnsorted();
+							break;
+						case "2":
+							break;
+						case "3":
+							break;
+						case "0":
+							listMenuOn = false;
+							break;
+						default:
+							break;
+						}
+					}
+					break;
+				case "5":
+//						exportFile();
+					System.out.println("Your student list has been succesfully exported");
+					break;
+				case "0":
+					mainMenuOn = false;
+//						exportFile();
+					System.out.println("Bye! Your student list has been automatically saved");
+					break;
+				default:
+					break;
+				}
 			}
 			sc.close();
 		} catch (IOException e) {
@@ -68,7 +86,7 @@ public class CIS22C {
 		}
 
 	}
-	
+
 	private static void displayMainMenu() {
 		System.out.println("\n====Main Menu======\n");
 		System.out.println("Select an option from menu below: ");
@@ -78,6 +96,15 @@ public class CIS22C {
 		System.out.println("4. Student List");
 		System.out.println("5. Export Student List");
 		System.out.println("0. Exit");
+	}
+	
+	private static void displayListMenu() {
+		System.out.println("\n====4. Student List Menu======\n");
+		System.out.println("Select an option from menu below: ");
+		System.out.println("1. List all students");
+		System.out.println("2. List all students by ID");
+		System.out.println("3. List all students by Name");
+		System.out.println("0. Back to previous menu");
 	}
 
 }

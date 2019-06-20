@@ -182,5 +182,13 @@ public class HashTable<T extends Comparable<T>> {
     				 (Table.get(i).getLength() - 1) + " more at this bucket\n\n");
     		}
     	}
-     }  
+     } 
+    
+    public void printNonEmptyBuckets() {
+    	for(int i = 0; i < Table.size(); i++) {
+    		if(!Table.get(i).isEmpty()) {
+    			System.out.println(Table.get(i).getFirst());
+    		}
+    	}
+	}
 }

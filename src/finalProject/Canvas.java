@@ -14,20 +14,24 @@ public class Canvas {
 
 	public Canvas(int maxId, int maxName) {
 		this.maxId = maxId;
-		this.maxName=maxName;
+		this.maxName = maxName;
 		bstStudent = new BST<Student>();
-		hashStudent = new HashTable<>(maxId*2);
+		hashStudent = new HashTable<>(maxId * 2);
 	}
-	
+
 	public void enrollStudent(String id, String name, String grade, String country, int age) {
 		Student newStudents = new Student(id, name, grade, country, age);
 		bstStudent.insert(newStudents);
 		hashStudent.insert(newStudents);
 	}
-	
+
 	public int size() {
 		return hashStudent.getNumElements();
-}
+	}
+	
+	public void displayAllStudentsUnsorted() {
+		hashStudent.printNonEmptyBuckets();
+	}
 //	public void dropStudent() {
 //		Scanner scanner;
 //		scanner = new Scanner(System.in);

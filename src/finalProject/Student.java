@@ -58,8 +58,7 @@ public class Student implements Comparable<Student> {
 
 	@Override
 	public String toString() {
-		String result = "Product name: " + name + "\ngrade: " + grade + "\ncountry: " + country 
-				+ "\nage:" + age + "\nPrice: " + "\n";
+		String result = "Student ID: " + id + "\nName: " + name;
 		return result;
 	}
 
