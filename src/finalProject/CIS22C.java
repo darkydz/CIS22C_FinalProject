@@ -43,7 +43,17 @@ public class CIS22C {
 					System.out.println("You have successfully enrolled " + name);
 					break;
 				case "2":
-//						delete by ID
+					System.out.println("Total students: " + c.size());
+					System.out.println("Please enter student ID to drop:");
+					id = input.nextLine();
+					try {
+						Student drop = c.dropStudent(id);
+						System.out.println("You have successfully drop " + drop.getName());
+						System.out.println("Total students: " + c.size());
+					}
+					catch (Exception e) {
+						System.out.println("Student ID " + id + " does not exist!");
+					}
 					break;
 				case "3":
 					break;

@@ -16,7 +16,7 @@ public class Student implements Comparable<Student> {
 		this.age = age;
 	}
 	
-	public String getgrade() {
+	public String getGrade() {
 		return grade;
 	}
 
