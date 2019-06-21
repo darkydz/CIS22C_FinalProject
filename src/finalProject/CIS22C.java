@@ -115,19 +115,19 @@ public class CIS22C {
 					}
 					break;
 				case "5":
-//						exportFile();
-					System.out.println("Your student list has been succesfully exported");
+					c.exportStudentList();
 					break;
 				case "0":
 					mainMenuOn = false;
-//						exportFile();
-					System.out.println("Bye! Your student list has been automatically saved");
+					c.exportStudentList();
+					System.out.println("Bye!");
 					break;
 				default:
 					break;
 				}
 			}
 			sc.close();
+			input.close();
 		} catch (IOException e) {
 			System.out.println("No file found!");
 		}
