@@ -27,7 +27,11 @@ public class Canvas {
 	}
 	
 	public Student dropStudent(String id) {
-		return hashStudent.remove(id);
+		Student s = hashStudent.remove(id);
+		System.out.println("Total tree students: " + bstStudent.getSize());
+		bstStudent.remove(s);
+		System.out.println("Total tree students: " + bstStudent.getSize());
+		return s;
 	}
 
 	public int size() {
@@ -35,6 +39,8 @@ public class Canvas {
 	}
 	
 	public void displayAllStudentsUnsorted() {
-//		hashStudent.;
+		for (String id : hashStudent.keySet()) {
+			System.out.println(hashStudent.get(id).toString());
+		}
 	}
 }
