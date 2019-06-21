@@ -50,12 +50,33 @@ public class CIS22C {
 						Student drop = c.dropStudent(id);
 						System.out.println("You have successfully drop " + drop.getName());
 						System.out.println("Total students: " + c.size());
-					}
-					catch (Exception e) {
+					} catch (Exception e) {
 						System.out.println("Student ID " + id + " does not exist!");
 					}
 					break;
 				case "3":
+					Boolean searchMenuOn = true;
+					while (searchMenuOn) {
+						displaySearchMenu();
+						switch (input.nextLine()) {
+						case "1":
+							System.out.println("Please enter a student ID");
+							id = input.nextLine();
+							Student s = c.searchById(id);
+							if (s != null)
+								System.out.println(s.toString());
+							else
+								System.out.println("Student ID " + id + " does not exist!");
+							break;
+						case "2":
+							break;
+						case "0":
+							searchMenuOn = false;
+							break;
+						default:
+							break;
+						}
+					}
 					break;
 				case "4":
 					Boolean listMenuOn = true;
@@ -107,7 +128,7 @@ public class CIS22C {
 		System.out.println("5. Export Student List");
 		System.out.println("0. Exit");
 	}
-	
+
 	private static void displayListMenu() {
 		System.out.println("\n====4. Student List Menu======\n");
 		System.out.println("Select an option from menu below: ");
@@ -115,6 +136,15 @@ public class CIS22C {
 		System.out.println("2. List all students by ID");
 		System.out.println("3. List all students by Name");
 		System.out.println("0. Back to previous menu");
+	}
+
+	private static void displaySearchMenu() {
+		System.out.println("\n====3. Student Look-up Menu======\n");
+		System.out.println("Select an option from menu below: ");
+		System.out.println("1. Look up by Student ID");
+		System.out.println("2. Look up by Student Name");
+		System.out.println("0. Back to previous menu");
+
 	}
 
 }

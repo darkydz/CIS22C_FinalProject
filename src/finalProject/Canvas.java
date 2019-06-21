@@ -1,10 +1,6 @@
 package finalProject;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
 
 public class Canvas {
 	int maxId;
@@ -36,6 +32,10 @@ public class Canvas {
 
 	public int size() {
 		return hashStudent.size();
+	}
+	
+	public Student searchById(String id) {
+		return hashStudent.get(id);
 	}
 	
 	public void displayAllStudentsUnsorted() {
