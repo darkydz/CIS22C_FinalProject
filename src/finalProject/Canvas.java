@@ -1,5 +1,6 @@
 package finalProject;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class Canvas {
@@ -36,6 +37,15 @@ public class Canvas {
 	
 	public Student searchById(String id) {
 		return hashStudent.get(id);
+	}
+	
+	public ArrayList<Student> searchByName(String name) {
+		ArrayList<Student> found= new ArrayList<Student>();
+		for (String id : hashStudent.keySet()) {
+			Student s = hashStudent.get(id);
+			if (s.getName().toLowerCase().indexOf(name.toLowerCase()) != -1) found.add(s);
+		}
+		return found;
 	}
 	
 	public void displayAllStudentsUnsorted() {

@@ -12,6 +12,7 @@ public class CIS22C {
 		Scanner input = new Scanner(System.in);
 		File file = new File("Student.txt");
 		String id, name, grade, country, ageString;
+		Student student;
 		try {
 			Scanner sc = new Scanner(file);
 			Canvas c = new Canvas(25, 25);
@@ -60,15 +61,27 @@ public class CIS22C {
 						displaySearchMenu();
 						switch (input.nextLine()) {
 						case "1":
-							System.out.println("Please enter a student ID");
+							System.out.println("Please enter a student ID:");
 							id = input.nextLine();
-							Student s = c.searchById(id);
-							if (s != null)
-								System.out.println(s.toString());
+							student = c.searchById(id);
+							if (student != null)
+								System.out.println(student.toString());
 							else
 								System.out.println("Student ID " + id + " does not exist!");
 							break;
 						case "2":
+							System.out.println("Please enter a name or part of the name:");
+							name = input.nextLine();
+							ArrayList<Student> students = c.searchByName(name);
+							if (students.size() > 0) 
+							{
+								System.out.println("(" + students.size() + ") students found:");
+								for (Student s : students) {
+									System.out.println(s.toString());
+								}
+							}
+							else
+								System.out.println("No student found!");
 							break;
 						case "0":
 							searchMenuOn = false;
