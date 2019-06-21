@@ -85,6 +85,22 @@ public class HashTable<T extends Comparable<T>> {
     		return -1;
     	}
     }
+    
+    public ArrayList<T> getAllElements() {
+		ArrayList<T> all = new ArrayList<T>();
+    	for (List<T> list : Table) {
+    		System.out.println(list.getLength());
+//    		list.printReversed();
+    		int i = 0;
+    		while (i < list.getLength()) {
+    			System.out.println("count " + i);
+    			all.add(list.getIterator());
+    			list.advanceIterator();
+    			i++;
+    		}
+		}
+    	return all;
+	}
      
     /**Manipulation Procedures*/
     

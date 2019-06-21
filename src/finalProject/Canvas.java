@@ -15,7 +15,8 @@ public class Canvas {
 	BST<Student> bstStudent;
 	BST<Student2> bstStudent2;
 	Hashtable<String, Student> hashStudent;
-
+	
+	
 	public Canvas(int maxId, int maxName) {
 		this.maxId = maxId;
 		this.maxName = maxName;
@@ -26,23 +27,21 @@ public class Canvas {
 
 	public void enrollStudent(String id, String name, String grade, String country, String age) {
 		Student newStudent = new Student(id, name, grade, country, age);
-		bstStudent.insert(newStudent);
 		hashStudent.put(id, newStudent);
-
+		bstStudent.insert(newStudent);
+		
 		Student2 newStudent2 = new Student2(id, name, grade, country, age);
 		bstStudent2.insert(newStudent2);
 	}
 
 	public Student dropStudent(String id) {
 		Student student = hashStudent.remove(id);
-		System.out.println("Total tree students: " + bstStudent.getSize());
 		bstStudent.remove(student);
-		System.out.println("Total tree students: " + bstStudent.getSize());
 
 		Student2 student2 = new Student2(student.getId(), student.getName(), student.getGrade(), student.getCountry(),
 				student.getAge());
 		bstStudent2.remove(student2);
-
+		
 		return student;
 	}
 

@@ -1,0 +1,12 @@
+Student ID: 3
+Name: Ta thanh lich
+Age: 17
+Country: US
+Grade: S
+
+Student ID: 1
+Name: hoa map
+Age: 18
+Country: VN
+Grade: A
+

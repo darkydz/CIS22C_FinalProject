@@ -1,0 +1,12 @@
+Student ID: 2
+Name: TA dep trai
+Age: 17
+Country: US
+Grade: S
+
+Student ID: 1
+Name: hoa map
+Age: 18
+Country: VN
+Grade: A
+

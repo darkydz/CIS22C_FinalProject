@@ -15,3 +15,9 @@ Name: TA dep trai
 Age: 17
 Country: US
 Grade: S
+
+Student ID: 4
+Name: hoa map DIT
+Age: 28
+Country: VN
+Grade: A-

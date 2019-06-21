@@ -10,7 +10,7 @@ public class CIS22C {
 	public static void main(String[] args) {
 		System.out.println("Welcome to the Canvas!\n");
 		Scanner input = new Scanner(System.in);
-		File file = new File("Student.txt");
+		File file = new File("Students.txt");
 		String id, name, grade, country, age;
 		Student student;
 		try {
