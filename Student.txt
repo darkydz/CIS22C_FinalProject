@@ -1,15 +1,17 @@
-1
-hoa map
-A
-VN
-18
-2
-TA dep trai
-S
-US
-17
-3
-Ta thanh lich
-S
-US
-17
+Student ID: 1
+Name: hoa map
+Age: 18
+Country: VN
+Grade: A
+
+Student ID: 3
+Name: Ta thanh lich
+Age: 17
+Country: US
+Grade: S
+ 
+Student ID: 2
+Name: TA dep trai
+Age: 17
+Country: US
+Grade: S

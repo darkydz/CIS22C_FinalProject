@@ -1,6 +1,6 @@
 package finalProject;
 
-public class Student implements Comparable<Student> {
+public class Student2 implements Comparable<Student2> {
 
 	private String id;
 	private String name;
@@ -8,7 +8,7 @@ public class Student implements Comparable<Student> {
 	private String country;
 	private String age;
 
-	public Student(String id, String name, String grade, String country, String age) {
+	public Student2(String id, String name, String grade, String country, String age) {
 		this.id = id;
 		this.name = name;
 		this.grade = grade;
@@ -64,11 +64,12 @@ public class Student implements Comparable<Student> {
 	}
 
 	@Override
-	public int compareTo(Student otherStudent) {
-		if (this.id.compareTo(otherStudent.getId()) != 0) {
+	public int compareTo(Student2 otherStudent) {
+
+		if (this.name.compareTo(otherStudent.getName()) != 0) {
+			return -1 * this.name.compareTo(otherStudent.getName());
+		} else if (this.id.compareTo(otherStudent.getId()) != 0) {
 			return this.id.compareTo(otherStudent.getId());
-		} else if (this.name.compareTo(otherStudent.getName()) != 0) {
-			return this.name.compareTo(otherStudent.getName());
 		} else {
 			return 0;
 		}

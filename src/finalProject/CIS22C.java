@@ -11,18 +11,19 @@ public class CIS22C {
 		System.out.println("Welcome to the Canvas!\n");
 		Scanner input = new Scanner(System.in);
 		File file = new File("Student.txt");
-		String id, name, grade, country, ageString;
+		String id, name, grade, country, age;
 		Student student;
 		try {
 			Scanner sc = new Scanner(file);
 			Canvas c = new Canvas(25, 25);
 			while (sc.hasNextLine()) {
-				id = sc.nextLine();
-				name = sc.nextLine();
-				grade = sc.nextLine();
-				country = sc.nextLine();
-				ageString = sc.nextLine();
-				c.enrollStudent(id, name, grade, country, Integer.parseInt(ageString));
+				id = sc.nextLine().replaceFirst("Student ID: ", "");
+				name = sc.nextLine().replaceFirst("Name: ", "");;
+				age = sc.nextLine().replaceFirst("Age: ", "");;
+				country = sc.nextLine().replaceFirst("Country: ", "");;
+				grade = sc.nextLine().replaceFirst("Grade: ", "");;
+				if (sc.hasNextLine()) sc.nextLine();
+				c.enrollStudent(id, name, grade, country, age);
 			}
 			System.out.println("Total students: " + c.size());
 			Boolean mainMenuOn = true;
@@ -39,8 +40,8 @@ public class CIS22C {
 					System.out.println("Please enter new student Country");
 					country = input.nextLine();
 					System.out.println("Please enter new student Age");
-					ageString = input.nextLine();
-					c.enrollStudent(id, name, grade, country, Integer.parseInt(ageString));
+					age = input.nextLine();
+					c.enrollStudent(id, name, grade, country, age);
 					System.out.println("You have successfully enrolled " + name);
 					break;
 				case "2":
@@ -100,8 +101,10 @@ public class CIS22C {
 							c.displayAllStudentsUnsorted();
 							break;
 						case "2":
+							c.displayAllStudentsById();
 							break;
 						case "3":
+							c.displayAllStudentsByName();
 							break;
 						case "0":
 							listMenuOn = false;
