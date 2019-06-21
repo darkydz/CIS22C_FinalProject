@@ -10,27 +10,27 @@ public class Canvas {
 	int maxName;
 	Student student;
 	BST<Student> bstStudent;
-	HashTable<Student> hashStudent;
+	HashTable2<String, Student> hashStudent;
 
 	public Canvas(int maxId, int maxName) {
 		this.maxId = maxId;
 		this.maxName = maxName;
 		bstStudent = new BST<Student>();
-		hashStudent = new HashTable<>(maxId * 2);
+		hashStudent = new HashTable2<String, Student>(maxId);
 	}
 
 	public void enrollStudent(String id, String name, String grade, String country, int age) {
-		Student newStudents = new Student(id, name, grade, country, age);
-		bstStudent.insert(newStudents);
-		hashStudent.insert(newStudents);
+		Student newStudent = new Student(id, name, grade, country, age);
+		bstStudent.insert(newStudent);
+		hashStudent.add(id,newStudent);
 	}
 
 	public int size() {
-		return hashStudent.getNumElements();
+		return hashStudent.getSize();
 	}
 	
 	public void displayAllStudentsUnsorted() {
-		hashStudent.printNonEmptyBuckets();
+//		hashStudent.;
 	}
 //	public void dropStudent() {
 //		Scanner scanner;
